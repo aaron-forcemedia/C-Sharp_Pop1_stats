@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Pop1_Stats_Collector/1.0.0": {
+        "runtime": {
+          "Pop1_Stats_Collector.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Pop1_Stats_Collector/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,16 @@
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.csproj.AssemblyReference.cache
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.AssemblyInfoInputs.cache
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.AssemblyInfo.cs
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.csproj.CoreCompileInputs.cache
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\bin\Debug\net5.0\Pop1_Stats_Collector.exe
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\bin\Debug\net5.0\Pop1_Stats_Collector.deps.json
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\bin\Debug\net5.0\Pop1_Stats_Collector.runtimeconfig.json
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\bin\Debug\net5.0\Pop1_Stats_Collector.runtimeconfig.dev.json
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\bin\Debug\net5.0\Pop1_Stats_Collector.dll
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\bin\Debug\net5.0\ref\Pop1_Stats_Collector.dll
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\bin\Debug\net5.0\Pop1_Stats_Collector.pdb
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.dll
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\ref\Pop1_Stats_Collector.dll
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.pdb
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.genruntimeconfig.cache
