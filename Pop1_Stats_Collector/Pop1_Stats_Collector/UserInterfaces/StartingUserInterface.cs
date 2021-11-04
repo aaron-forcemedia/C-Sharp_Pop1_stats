@@ -9,6 +9,7 @@ namespace Pop1_Stats_Collector.UserInterfaces
     public static class StartingUserInterface
     {
         public static bool Quit = false;
+        private static object playerid;
 
         public static void MenuLoop()
         {
@@ -31,7 +32,10 @@ namespace Pop1_Stats_Collector.UserInterfaces
             if (menu_selection == "C")
                 Quit = true;
             else if (menu_selection == "D")
+            {
                 Quit = true;
+                //Need to run playerfabid async method from PlayerFabId class but how?
+            }
             else if (menu_selection == "Q")
                 Quit = true;
             else

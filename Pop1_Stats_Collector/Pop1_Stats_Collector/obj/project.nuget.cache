@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "aZ0Ty/vC2QDGr2633QZma3aLQAdgyGLP9HMUkT/zAudscoAjEY2oj9AdWK33+h6PIm49KknSopWI0jD6LZd37g==",
+  "dgSpecHash": "T1F9OK5PWQi3UKidnfjayr4qAsqBixuXFipD2GlLuMeSEvYex7qGGvGZV/1LAKMfNaExPU7/Ef4UuAsz4/KoeQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\aaron\\Desktop\\Code_Louisville_C#\\Pop1_Stats_Collector\\Pop1_Stats_Collector\\Pop1_Stats_Collector.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\aaron\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
