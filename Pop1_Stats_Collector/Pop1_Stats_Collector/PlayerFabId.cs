@@ -14,12 +14,14 @@ namespace Pop1_Stats_Collector
   
         public static async Task PullFabId() 
         {
-            var baseUrl = "https://nykloo.com/api/PlayerInfos/Search?usernameQuery=Zoloto&page=0&pageSize=25";
+            var baseUrl = "https://nykloo.com/api/PlayerInfos/Search?usernameQuery=Zoloto_&page=0&pageSize=25";
             var client = new HttpClient();
             var responseId = client.GetAsync($"{baseUrl}").Result;
             var responseBody = await responseId.Content.ReadAsStringAsync();
-            var userFabId = JsonConvert.DeserializeObject<GetUserId>(responseBody);
-            Console.WriteLine(userFabId.playFabId);
+            //var userFabId = JsonConvert.DeserializeObject<GetUserId>(responseBody);
+            //Console.WriteLine(userFabId.playFabId);
+            Console.WriteLine(responseBody);
+       
         }
 
     }
