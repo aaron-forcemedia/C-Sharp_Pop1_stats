@@ -35,6 +35,8 @@ namespace Pop1_Stats_Collector.UserInterfaces
             {
                 Quit = true;
                 //Need to run playerfabid async method from PlayerFabId class but how?
+                //I'm going to add a step that allows the user to input their username but right now I am just trying
+                //to display one user just to see if it works. 
             }
             else if (menu_selection == "Q")
                 Quit = true;
