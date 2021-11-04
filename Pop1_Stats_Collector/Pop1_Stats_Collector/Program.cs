@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Pop1_Stats_Collector.UserInterfaces;
 
 namespace Pop1_Stats_Collector
