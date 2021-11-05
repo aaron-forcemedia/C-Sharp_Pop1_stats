@@ -31,7 +31,7 @@ namespace Pop1_Stats_Collector.UserInterfaces
                 Quit = true;
             else if (menu_selection == "D")
             {
-                await PlayerStats.PullFabId();
+                await PlayerStats.PullFabId(); 
                 await PlayerStats.PullStats();
             }
             else if (menu_selection == "Q")

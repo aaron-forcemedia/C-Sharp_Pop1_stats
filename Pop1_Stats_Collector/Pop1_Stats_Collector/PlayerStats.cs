@@ -29,7 +29,7 @@ namespace Pop1_Stats_Collector
             Console.WriteLine(gameName);
             Console.WriteLine(gameId);
             //Console.WriteLine(responseBody);
-            
+            return gameId; 
         }
 
         public static async Task PullStats()
