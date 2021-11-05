@@ -8,9 +8,7 @@ namespace Pop1_Stats_Collector.UserInterfaces
 {
     public static class StartingUserInterface
     {
-        public static bool Quit = false;
-        private static object playerid;
-        
+        public static bool Quit = false;        
         public static async Task MenuLoop()
         {
             while (!Quit)
@@ -18,7 +16,7 @@ namespace Pop1_Stats_Collector.UserInterfaces
                 Console.WriteLine(string.Empty);
                 Console.WriteLine("Enter from one of the following options:");
                 Console.WriteLine("----------------------------------------");
-                Console.WriteLine("<C>hange current Username");
+                //Console.WriteLine("<C>hange current Username");
                 Console.WriteLine("<D>isplay current stats");
                 Console.WriteLine("<Q>uit");
                 Console.WriteLine(string.Empty);
@@ -32,7 +30,10 @@ namespace Pop1_Stats_Collector.UserInterfaces
             if (menu_selection == "C")
                 Quit = true;
             else if (menu_selection == "D")
-                await PlayerFabId.PullFabId();
+            {
+                await PlayerStats.PullFabId();
+                await PlayerStats.PullStats();
+            }
             else if (menu_selection == "Q")
                 Quit = true;
             else
