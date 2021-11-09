@@ -11,9 +11,10 @@ namespace Pop1_Stats_Collector
 {
     public class PlayerStats
     {
-        private static object gameId;
+        public static object gameId;
+        public string playerCode;
 
-        public static async Task PullFabId() 
+        public static async Task<string> PullFabId() 
         {
             Console.WriteLine("Enter a name:");
             string name;
@@ -25,23 +26,29 @@ namespace Pop1_Stats_Collector
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userFabId = JsonConvert.DeserializeObject<List<GetUserId>>(responseBody);
             var gameName = userFabId[0].displayName;
-            var gameId = userFabId[0].playFabId;
+            var playerCode = userFabId[0].playFabId;
             Console.WriteLine(gameName);
-            Console.WriteLine(gameId);
+            //Console.WriteLine(playerCode);
             //Console.WriteLine(responseBody);
-            return gameId; 
+            return playerCode; 
         }
 
-        public static async Task PullStats()
+        public static async Task PullStats(string playerCode)
         {
+            Console.WriteLine(playerCode);
             var baseUrl = "https://nykloo.com/api/PlayerStats/Stats/";
             var client = new HttpClient();
-            var responseId = client.GetAsync($"{baseUrl}/{gameId}").Result;
+            HttpResponseMessage responseId = client.GetAsync($"{baseUrl}{playerCode}").Result;
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userStats = JsonConvert.DeserializeObject<List<GetStats>>(responseBody);
-            Console.WriteLine(userStats);
+            var userStatsFirst = userStats[0];
+            Console.WriteLine(userStatsFirst);
             
         }
 
+        internal static Task PullStats(object playerCode)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -8,7 +8,9 @@ namespace Pop1_Stats_Collector.UserInterfaces
 {
     public static class StartingUserInterface
     {
-        public static bool Quit = false;        
+        public static bool Quit = false;
+        public static string playerCode;
+
         public static async Task MenuLoop()
         {
             while (!Quit)
@@ -21,18 +23,19 @@ namespace Pop1_Stats_Collector.UserInterfaces
                 Console.WriteLine("<Q>uit");
                 Console.WriteLine(string.Empty);
                 var menu_selection = Console.ReadLine().ToUpper();
-                await CommandPath(menu_selection);
+                await CommandPath(menu_selection, playerCode);
             }
         }
 
-        public static async Task CommandPath(string menu_selection)
+        public static async Task CommandPath(string menu_selection, string playerCode)
         {
             if (menu_selection == "C")
                 Quit = true;
             else if (menu_selection == "D")
             {
-                await PlayerStats.PullFabId(); 
-                await PlayerStats.PullStats();
+                playerCode = await PlayerStats.PullFabId();
+                Console.WriteLine(playerCode);
+                await PlayerStats.PullStats(playerCode);
             }
             else if (menu_selection == "Q")
                 Quit = true;
