@@ -38,10 +38,10 @@ namespace Pop1_Stats_Collector
             Console.WriteLine(playerCode);
             var baseUrl = "https://nykloo.com/api/PlayerStats/Stats/";
             var client = new HttpClient();
-            HttpResponseMessage responseId = client.GetAsync($"{baseUrl}{playerCode}").Result;
+            var responseId = client.GetAsync($"{baseUrl}{playerCode}").Result;
             var responseBody = await responseId.Content.ReadAsStringAsync();
-            var userStats = JsonConvert.DeserializeObject<List<GetStats>>(responseBody);
-            var userStatsFirst = userStats[0];
+            var userStats = JsonConvert.DeserializeObject<GetStats>(responseBody);
+            var userStatsFirst = userStats;
             Console.WriteLine(userStatsFirst);
             
         }
