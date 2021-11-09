@@ -41,8 +41,8 @@ namespace Pop1_Stats_Collector
             var responseId = client.GetAsync($"{baseUrl}{playerCode}").Result;
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userStats = JsonConvert.DeserializeObject<GetStats>(responseBody);
-            var userStatsFirst = userStats;
-            Console.WriteLine(userStatsFirst);
+            
+            Console.WriteLine(userStats);
             
         }
 
