@@ -40,7 +40,7 @@ namespace Pop1_Stats_Collector
             var client = new HttpClient();
             var responseId = client.GetAsync($"{baseUrl}{playerCode}").Result;
             var responseBody = await responseId.Content.ReadAsStringAsync();
-            var userStats = JsonConvert.DeserializeObject<GetStats>(responseBody);
+            var userStats = JsonConvert.DeserializeObject(responseBody);
             
             Console.WriteLine(userStats);
             
