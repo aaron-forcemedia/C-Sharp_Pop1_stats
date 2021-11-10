@@ -12,6 +12,7 @@ namespace Pop1_Stats_Collector
     public class PlayerStats
     {
         public static object gameId;
+        private static int playerStatistics;
         public string playerCode;
 
         public static async Task<string> PullFabId() 
@@ -41,8 +42,8 @@ namespace Pop1_Stats_Collector
             var responseId = client.GetAsync($"{baseUrl}{playerCode}").Result;
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userStats = JsonConvert.DeserializeObject(responseBody);
-            
-            Console.WriteLine(userStats);
+
+           Console.WriteLine(userStats);
             
         }
 

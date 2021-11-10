@@ -10,5 +10,7 @@ namespace Pop1_Stats_Collector
     {
         public string playFabId { get; set; }
         public string displayName { get; set; }
+
+        public string PlayerSkill { get; set; }
     }
 }
