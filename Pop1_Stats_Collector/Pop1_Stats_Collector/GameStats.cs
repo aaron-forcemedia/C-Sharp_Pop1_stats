@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Pop1_Stats_Collector
 {
-    class GetUserId
+    class GameStats
     {
-        public string playFabId { get; set; }
-        public string displayName { get; set; }
-
+        public string WeeklyWinsTotal { get; set; } 
     }
 }

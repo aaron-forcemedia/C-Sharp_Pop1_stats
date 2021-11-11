@@ -39,11 +39,13 @@ namespace Pop1_Stats_Collector
             Console.WriteLine(playerCode);
             var baseUrl = "https://nykloo.com/api/PlayerStats/Stats/";
             var client = new HttpClient();
-            var responseId = client.GetAsync($"{baseUrl}{playerCode}").Result;
+            var responseId = await client.GetAsync($"{baseUrl}{playerCode}");
             var responseBody = await responseId.Content.ReadAsStringAsync();
-            var userStats = JsonConvert.DeserializeObject(responseBody);
+            var userStats = JsonConvert.DeserializeObject<PlayerStatsResponse>(responseBody);
+            var winstat = userStats.PlayerStatistics
+                .FirstOrDefault(x => x.StatisticName == "WeeklyWinsTotal");
 
-           Console.WriteLine(userStats);
+           Console.WriteLine(winstat.Value);
             
         }
 
