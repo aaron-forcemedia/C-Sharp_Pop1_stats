@@ -12,7 +12,6 @@ namespace Pop1_Stats_Collector
     public class PlayerStats
     {
         public static object gameId;
-        private static int playerStatistics;
         public string playerCode;
 
         public static async Task<string> PullFabId() 
@@ -25,28 +24,57 @@ namespace Pop1_Stats_Collector
             var client = new HttpClient();
             var responseId = client.GetAsync($"{baseUrl}{name}").Result;
             var responseBody = await responseId.Content.ReadAsStringAsync();
-            var userFabId = JsonConvert.DeserializeObject<List<GetUserId>>(responseBody);
-            var gameName = userFabId[0].displayName;
-            var playerCode = userFabId[0].playFabId;
-            Console.WriteLine(gameName);
-            //Console.WriteLine(playerCode);
-            //Console.WriteLine(responseBody);
+            var user = JsonConvert.DeserializeObject<List<GetUserId>>(responseBody);
+            var gameName = user[0].displayName;
+            var playerCode = user[0].playFabId;
             return playerCode; 
         }
 
         public static async Task PullStats(string playerCode)
         {
-            Console.WriteLine(playerCode);
             var baseUrl = "https://nykloo.com/api/PlayerStats/Stats/";
             var client = new HttpClient();
             var responseId = await client.GetAsync($"{baseUrl}{playerCode}");
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userStats = JsonConvert.DeserializeObject<PlayerStatsResponse>(responseBody);
-            var winstat = userStats.PlayerStatistics
-                .FirstOrDefault(x => x.StatisticName == "WeeklyWinsTotal");
-
-           Console.WriteLine(winstat.Value);
             
+            var winStat = userStats.PlayerStatistics
+                .FirstOrDefault(x => x.StatisticName == "WeeklyWinsTotal");
+            var playerSkill = userStats.PlayerStatistics
+                .FirstOrDefault(x => x.StatisticName == "PlayerSkill");
+            var careerGamesPlayed = userStats.PlayerStatistics
+                .FirstOrDefault(x => x.StatisticName == "CareerGamesPlayed");
+            var careerWins = userStats.PlayerStatistics
+                .FirstOrDefault(x => x.StatisticName == "CareerWins");
+            var seasonWins = userStats.PlayerStatistics
+                .FirstOrDefault(x => x.StatisticName == "SeasonWins");
+            var weeklyKills = userStats.PlayerStatistics
+                .FirstOrDefault(x => x.StatisticName == "WeeklyKillsTotal");
+            var careerKills = userStats.PlayerStatistics
+                .FirstOrDefault(x => x.StatisticName == "CareerKills");
+            var MMR1 = userStats.PlayerStatistics
+                .FirstOrDefault(x => x.StatisticName == "MMR1");
+
+            var winStatVal = winStat.Value;
+            var playerSkillVal = playerSkill.Value;
+            var careerGamesPlayedVal = careerGamesPlayed.Value;
+            var careerWinsVal = careerWins.Value;
+            var seasonWinsVal = seasonWins.Value;
+            var weeklyKillsVal = weeklyKills.Value;
+            var careerKillsVal = careerKills.Value;
+            var MMR1Val = MMR1.Value;
+
+
+            Console.WriteLine($"Weekly Wins : {winStatVal}");
+            Console.WriteLine($"Player Skill: {playerSkillVal}");
+            Console.WriteLine($"Career Games: {careerGamesPlayedVal}");
+            Console.WriteLine($"Career Wins : {careerWinsVal}");
+            Console.WriteLine($"Season Wins : {seasonWinsVal}");
+            Console.WriteLine($"Weekly Kills: {weeklyKillsVal}");
+            Console.WriteLine($"Career Kills: {careerKillsVal}");
+            Console.WriteLine($"MMR1        : {MMR1Val}");
+
+
         }
 
         internal static Task PullStats(object playerCode)
