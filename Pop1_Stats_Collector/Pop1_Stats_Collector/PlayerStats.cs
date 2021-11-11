@@ -28,6 +28,7 @@ namespace Pop1_Stats_Collector
             var gameName = user[0].displayName;
             var playerCode = user[0].playFabId;
             Console.WriteLine($"Statistics for {gameName}");
+            Console.WriteLine("-----------------------------");
             return playerCode; 
         }
 
@@ -56,14 +57,22 @@ namespace Pop1_Stats_Collector
             var MMR1 = userStats.PlayerStatistics
                 .FirstOrDefault(x => x.StatisticName == "MMR1");
 
-            var winStatVal = winStat.Value;
-            var playerSkillVal = playerSkill.Value;
-            var careerGamesPlayedVal = careerGamesPlayed.Value;
-            var careerWinsVal = careerWins.Value;
-            var seasonWinsVal = seasonWins.Value;
-            var weeklyKillsVal = weeklyKills.Value;
-            var careerKillsVal = careerKills.Value;
-            var MMR1Val = MMR1.Value;
+            long? winStatVal;
+            if (winStat != null) winStatVal = winStat.Value; else winStatVal = 0;
+            long? playerSkillVal;
+            if (playerSkill != null) playerSkillVal = playerSkill.Value; else playerSkillVal = 0;
+            long? careerGamesPlayedVal;
+            if (careerGamesPlayed != null) careerGamesPlayedVal = careerGamesPlayed.Value; else careerGamesPlayedVal = 0;
+            long? careerWinsVal;
+            if (careerWins != null) careerWinsVal = careerWins.Value; else careerWinsVal = 0;
+            long? seasonWinsVal;
+            if (seasonWins != null) seasonWinsVal = seasonWins.Value; else seasonWinsVal = 0;
+            long? weeklyKillsVal;
+            if (weeklyKills != null) { weeklyKillsVal = weeklyKills.Value; } else weeklyKillsVal = 0;
+            long? careerKillsVal;
+            if (careerKills != null) careerKillsVal = careerKills.Value; else careerKillsVal = 0;
+            long? MMR1Val;
+            if (MMR1 != null) MMR1Val = MMR1.Value; else MMR1Val = 0;
 
 
             Console.WriteLine($"Weekly Wins : {winStatVal}");
