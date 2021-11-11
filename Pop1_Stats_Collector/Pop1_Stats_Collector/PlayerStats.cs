@@ -27,6 +27,7 @@ namespace Pop1_Stats_Collector
             var user = JsonConvert.DeserializeObject<List<GetUserId>>(responseBody);
             var gameName = user[0].displayName;
             var playerCode = user[0].playFabId;
+            Console.WriteLine($"Statistics for {gameName}");
             return playerCode; 
         }
 
