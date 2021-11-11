@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
+using System.IO;
 
 namespace Pop1_Stats_Collector
 {
@@ -83,8 +84,21 @@ namespace Pop1_Stats_Collector
             Console.WriteLine($"Weekly Kills: {weeklyKillsVal}");
             Console.WriteLine($"Career Kills: {careerKillsVal}");
             Console.WriteLine($"MMR1        : {MMR1Val}");
+            Console.WriteLine("");
+            
+            string winStatString = winStatVal.ToString();
+            string playerSKillString = playerSkillVal.ToString();
+            string weeklyKillString =  weeklyKillsVal.ToString();
+            string textString = ($"Weekly Wins: {winStatString} Player Skill: {playerSKillString} + Weekly Kills: {weeklyKillString}");
 
+            Console.WriteLine(textString);
+            await WriteStats(textString);
 
+        }
+
+        public static async Task WriteStats(string textString)
+        {
+               await File.WriteAllTextAsync("stats.txt", textString);
         }
 
         internal static Task PullStats(object playerCode)

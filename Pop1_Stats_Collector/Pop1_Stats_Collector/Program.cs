@@ -11,7 +11,6 @@ namespace Pop1_Stats_Collector
             Console.WriteLine("#************************************************#");
             Console.WriteLine("# Welcome to the Population: One Stats Collector #");
             Console.WriteLine("#************************************************#");
-
             await StartingUserInterface.MenuLoop();
 
             Console.WriteLine("Thank you for using Population: One Stats Collecton!");
