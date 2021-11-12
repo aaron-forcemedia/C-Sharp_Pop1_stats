@@ -10,6 +10,7 @@ namespace Pop1_Stats_Collector.UserInterfaces
     {
         public static bool Quit = false;
         public static string playerCode;
+        public static string name;
 
         public static async Task MenuLoop()
         {
@@ -31,7 +32,7 @@ namespace Pop1_Stats_Collector.UserInterfaces
             if (menu_selection == "D")
             {
                 playerCode = await PlayerStats.PullFabId();
-                await PlayerStats.PullStats(playerCode);
+                await PlayerStats.PullStats(playerCode, name);
             }
             else if (menu_selection == "Q")
                 Quit = true;

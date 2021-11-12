@@ -14,6 +14,9 @@ namespace Pop1_Stats_Collector
     {
         public static object gameId;
         public string playerCode;
+        public string name;
+
+        
 
         public static async Task<string> PullFabId() 
         {
@@ -30,10 +33,11 @@ namespace Pop1_Stats_Collector
             var playerCode = user[0].playFabId;
             Console.WriteLine($"Statistics for {gameName}");
             Console.WriteLine("-----------------------------");
-            return playerCode; 
+            return playerCode;
+         
         }
 
-        public static async Task PullStats(string playerCode)
+        public static async Task PullStats(string playerCode, string name)
         {
             var baseUrl = "https://nykloo.com/api/PlayerStats/Stats/";
             var client = new HttpClient();
@@ -89,16 +93,12 @@ namespace Pop1_Stats_Collector
             string winStatString = winStatVal.ToString();
             string playerSKillString = playerSkillVal.ToString();
             string weeklyKillString =  weeklyKillsVal.ToString();
-            string textString = ($"Weekly Wins: {winStatString} Player Skill: {playerSKillString} + Weekly Kills: {weeklyKillString}");
+            string textString = ($"Player: {name} Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
 
             Console.WriteLine(textString);
-            await WriteStats(textString);
+            string path = @"C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\stats.txt";
+            File.WriteAllText(path, textString);
 
-        }
-
-        public static async Task WriteStats(string textString)
-        {
-               await File.WriteAllTextAsync("stats.txt", textString);
         }
 
         internal static Task PullStats(object playerCode)
