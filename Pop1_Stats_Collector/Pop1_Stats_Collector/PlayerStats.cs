@@ -96,7 +96,7 @@ namespace Pop1_Stats_Collector
             string textString = ($"Player: {name} Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
 
             Console.WriteLine(textString);
-            string path = @"Pop_Stats_Collector\stats.txt";
+            string path = @"stats\stats.txt";
             File.WriteAllText(path, textString);
 
         }
