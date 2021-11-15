@@ -31,8 +31,10 @@ namespace Pop1_Stats_Collector.UserInterfaces
         {
             if (menu_selection == "D")
             {
+                PlayerStats playerA = new PlayerStats();
                 playerCode = await PlayerStats.PullFabId();
-                await PlayerStats.PullStats(playerCode, name);
+                playerA.playerCode = playerCode;
+                await PlayerStats.PullStats(playerA, playerCode);
             }
             else if (menu_selection == "Q")
                 Quit = true;

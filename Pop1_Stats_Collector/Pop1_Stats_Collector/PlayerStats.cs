@@ -13,16 +13,18 @@ namespace Pop1_Stats_Collector
     public class PlayerStats
     {
         public static object gameId;
-        public string playerCode;
+        //public string playerCode;
         public string name;
-               
+        public string playerName { get; set; }
+        public string playerCode { get; set; }
+
 
         public static async Task<string> PullFabId() 
         {
             Console.WriteLine("Enter a name:");
             string name;
             name = Console.ReadLine();
-            
+                        
             var baseUrl = "https://nykloo.com/api/PlayerInfos/Search?usernameQuery=";
             var client = new HttpClient();
             var responseId = client.GetAsync($"{baseUrl}{name}").Result;
@@ -30,14 +32,15 @@ namespace Pop1_Stats_Collector
             var user = JsonConvert.DeserializeObject<List<GetUserId>>(responseBody);
             var gameName = user[0].displayName;
             var playerCode = user[0].playFabId;
+            
+            
             Console.WriteLine($"Statistics for {gameName}");
             Console.WriteLine("-----------------------------");
-            
-            return playerCode;
-                     
+
+            return playerCode;                 
         }
 
-        public static async Task PullStats(string playerCode, string name)
+        public static async Task PullStats(object playerA, string playerCode)
         {
             var baseUrl = "https://nykloo.com/api/PlayerStats/Stats/";
             var client = new HttpClient();
@@ -103,11 +106,14 @@ namespace Pop1_Stats_Collector
             string winStatString = winStatVal.ToString();
             string playerSKillString = playerSkillVal.ToString();
             string weeklyKillString =  weeklyKillsVal.ToString();
-            string textString = ($"{name} - Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
+                        
+            
+            string textString = ($" - Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
 
             Console.WriteLine(textString);
             string path = @"stats\stats.txt";
             File.WriteAllText(path, textString);
+            
 
         }
 
