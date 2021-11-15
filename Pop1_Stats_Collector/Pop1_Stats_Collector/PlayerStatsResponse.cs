@@ -24,4 +24,10 @@
         [JsonProperty("version")]
         public long Version { get; set; }
     }
-}    
+    public partial class PlayerProfile
+    {
+        [JsonProperty("displayName")]
+        public string DisplayName { get; set; }
+                
+    }
+}

@@ -15,8 +15,7 @@ namespace Pop1_Stats_Collector
         public static object gameId;
         public string playerCode;
         public string name;
-
-        
+               
 
         public static async Task<string> PullFabId() 
         {
@@ -33,8 +32,9 @@ namespace Pop1_Stats_Collector
             var playerCode = user[0].playFabId;
             Console.WriteLine($"Statistics for {gameName}");
             Console.WriteLine("-----------------------------");
+            
             return playerCode;
-         
+                     
         }
 
         public static async Task PullStats(string playerCode, string name)
@@ -44,7 +44,12 @@ namespace Pop1_Stats_Collector
             var responseId = await client.GetAsync($"{baseUrl}{playerCode}");
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userStats = JsonConvert.DeserializeObject<PlayerStatsResponse>(responseBody);
-            
+            var userName = JsonConvert.DeserializeObject<PlayerProfile>(responseBody);
+            //var name1 = userName.DisplayName.ToString();
+            //Console.WriteLine(name1);
+
+
+
             var winStat = userStats.PlayerStatistics
                 .FirstOrDefault(x => x.StatisticName == "WeeklyWinsTotal");
             var playerSkill = userStats.PlayerStatistics
@@ -62,6 +67,10 @@ namespace Pop1_Stats_Collector
             var MMR1 = userStats.PlayerStatistics
                 .FirstOrDefault(x => x.StatisticName == "MMR1");
 
+            
+            
+            
+            
             long? winStatVal;
             if (winStat != null) winStatVal = winStat.Value; else winStatVal = 0;
             long? playerSkillVal;
@@ -79,6 +88,7 @@ namespace Pop1_Stats_Collector
             long? MMR1Val;
             if (MMR1 != null) MMR1Val = MMR1.Value; else MMR1Val = 0;
 
+            
 
             Console.WriteLine($"Weekly Wins : {winStatVal}");
             Console.WriteLine($"Player Skill: {playerSkillVal}");
@@ -93,7 +103,7 @@ namespace Pop1_Stats_Collector
             string winStatString = winStatVal.ToString();
             string playerSKillString = playerSkillVal.ToString();
             string weeklyKillString =  weeklyKillsVal.ToString();
-            string textString = ($"Player: {name} Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
+            string textString = ($"{name} - Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
 
             Console.WriteLine(textString);
             string path = @"stats\stats.txt";
