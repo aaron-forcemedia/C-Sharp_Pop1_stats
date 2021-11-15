@@ -48,6 +48,8 @@ namespace Pop1_Stats_Collector
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userStats = JsonConvert.DeserializeObject<PlayerStatsResponse>(responseBody);
             var userName = JsonConvert.DeserializeObject<PlayerProfile>(responseBody);
+            
+            //Console.WriteLine(name1);
             //var name1 = userName.DisplayName.ToString();
             //Console.WriteLine(name1);
 
@@ -69,11 +71,9 @@ namespace Pop1_Stats_Collector
                 .FirstOrDefault(x => x.StatisticName == "CareerKills");
             var MMR1 = userStats.PlayerStatistics
                 .FirstOrDefault(x => x.StatisticName == "MMR1");
+  
 
-            
-            
-            
-            
+
             long? winStatVal;
             if (winStat != null) winStatVal = winStat.Value; else winStatVal = 0;
             long? playerSkillVal;
