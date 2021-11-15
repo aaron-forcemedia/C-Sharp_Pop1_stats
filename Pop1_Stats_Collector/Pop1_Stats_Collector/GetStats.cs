@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pop1_Stats_Collector
 {
-    class GetStats : GetUserId
+    class GetStats : PlayerStats
     {
     }
 }
