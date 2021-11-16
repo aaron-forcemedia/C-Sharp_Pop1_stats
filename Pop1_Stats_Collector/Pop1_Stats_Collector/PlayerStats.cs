@@ -18,6 +18,11 @@ namespace Pop1_Stats_Collector
         public string playerName { get; set; }
         public string playerCode { get; set; }
 
+        public long careerWinsInit { get; set; }
+
+        public long careerGamesPlayedInit { get; set; }
+
+        public long careerKills { get; set; }
 
         public static async Task<string> PullFabId() 
         {
@@ -47,15 +52,10 @@ namespace Pop1_Stats_Collector
             var responseId = await client.GetAsync($"{baseUrl}{playerCode}");
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userStats = JsonConvert.DeserializeObject<PlayerStatsResponse>(responseBody);
-            var userName = JsonConvert.DeserializeObject<PlayerStatsResponse>(responseBody);
-            string name2 = userName.AccountInfo.TitleInfo.DisplayName;
-            
-            //Console.WriteLine(name1);
-            //var name1 = userName.DisplayName.ToString();
-            //Console.WriteLine(name1);
+            string name2 = userStats.AccountInfo.TitleInfo.DisplayName;
 
-
-
+        
+        
             var winStat = userStats.PlayerStatistics
                 .FirstOrDefault(x => x.StatisticName == "WeeklyWinsTotal");
             var playerSkill = userStats.PlayerStatistics
@@ -107,9 +107,12 @@ namespace Pop1_Stats_Collector
             string winStatString = winStatVal.ToString();
             string playerSKillString = playerSkillVal.ToString();
             string weeklyKillString =  weeklyKillsVal.ToString();
-                        
+
+                                  
             
             string textString = ($"{name2} - Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
+
+
 
             Console.WriteLine(textString);
             string path = @"stats\stats.txt";
