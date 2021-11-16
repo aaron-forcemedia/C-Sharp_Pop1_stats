@@ -47,7 +47,8 @@ namespace Pop1_Stats_Collector
             var responseId = await client.GetAsync($"{baseUrl}{playerCode}");
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userStats = JsonConvert.DeserializeObject<PlayerStatsResponse>(responseBody);
-            var userName = JsonConvert.DeserializeObject<PlayerProfile>(responseBody);
+            var userName = JsonConvert.DeserializeObject<PlayerStatsResponse>(responseBody);
+            string name2 = userName.AccountInfo.TitleInfo.DisplayName;
             
             //Console.WriteLine(name1);
             //var name1 = userName.DisplayName.ToString();
@@ -108,7 +109,7 @@ namespace Pop1_Stats_Collector
             string weeklyKillString =  weeklyKillsVal.ToString();
                         
             
-            string textString = ($" - Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
+            string textString = ($"{name2} - Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
 
             Console.WriteLine(textString);
             string path = @"stats\stats.txt";
