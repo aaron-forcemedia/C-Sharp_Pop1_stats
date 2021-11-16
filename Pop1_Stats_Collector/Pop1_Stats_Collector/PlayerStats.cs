@@ -45,7 +45,7 @@ namespace Pop1_Stats_Collector
             return playerCode;                 
         }
 
-        public static async Task PullStats(object playerA, string playerCode)
+        public static async Task PullStats(object playerA, string playerCode, string path)
         {
             var baseUrl = "https://nykloo.com/api/PlayerStats/Stats/";
             var client = new HttpClient();
@@ -115,7 +115,7 @@ namespace Pop1_Stats_Collector
 
 
             Console.WriteLine(textString);
-            string path = @"stats\stats.txt";
+            //string path = @"stats\stats.txt";
             File.WriteAllText(path, textString);
             
 

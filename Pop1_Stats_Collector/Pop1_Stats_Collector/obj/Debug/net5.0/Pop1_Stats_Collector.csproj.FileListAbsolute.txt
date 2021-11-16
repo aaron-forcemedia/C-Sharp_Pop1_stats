@@ -15,3 +15,4 @@ C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collec
 C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.pdb
 C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\obj\Debug\net5.0\Pop1_Stats_Collector.genruntimeconfig.cache
 C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\aaron\Desktop\Code_Louisville_C#\Pop1_Stats_Collector\Pop1_Stats_Collector\bin\Debug\net5.0\stats\stats.txt

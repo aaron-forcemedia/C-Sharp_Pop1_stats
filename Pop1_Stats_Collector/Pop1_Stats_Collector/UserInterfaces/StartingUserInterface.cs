@@ -11,6 +11,7 @@ namespace Pop1_Stats_Collector.UserInterfaces
         public static bool Quit = false;
         public static string playerCode;
         public static string name;
+        public static string path;
 
         public static async Task MenuLoop()
         {
@@ -34,7 +35,22 @@ namespace Pop1_Stats_Collector.UserInterfaces
                 PlayerStats playerA = new PlayerStats();
                 playerCode = await PlayerStats.PullFabId();
                 playerA.playerCode = playerCode;
-                await PlayerStats.PullStats(playerA, playerCode);
+                
+                bool Quit2 = false;
+                while (!Quit2) {
+                    Console.WriteLine("Enter Player Slot (1, 2 or 3)");
+                    string playerSlot = Console.ReadLine();
+                    if (playerSlot == "1") { path = @"stats\stats1.txt"; Quit2 = true; }
+                    else if (playerSlot == "2") { path = @"stats\stats2.txt"; Quit2 = true; }
+                    else if (playerSlot == "3") { path = @"stats\stats3.txt"; Quit2 = true; }
+                    else
+                    {
+                        Console.WriteLine(string.Empty);
+                        Console.WriteLine("{0} is not a valid command. Please try again.", playerSlot);
+                        Console.WriteLine(string.Empty);
+                    }
+                }
+                await PlayerStats.PullStats(playerA, playerCode, path);
             }
             else if (menu_selection == "Q")
                 Quit = true;
