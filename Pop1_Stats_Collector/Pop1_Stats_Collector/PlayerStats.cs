@@ -29,8 +29,7 @@ namespace Pop1_Stats_Collector
             var user = JsonConvert.DeserializeObject<List<GetUserId>>(responseBody);
             var gameName = user[0].displayName;
             var playerCode = user[0].playFabId;
-            
-            
+                        
             Console.WriteLine($"Statistics for {gameName}");
             Console.WriteLine("-----------------------------");
 
@@ -45,9 +44,8 @@ namespace Pop1_Stats_Collector
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var userStats = JsonConvert.DeserializeObject<PlayerStatsResponse>(responseBody);
             string name2 = userStats.AccountInfo.TitleInfo.DisplayName;
-
         
-        
+            
             var winStat = userStats.PlayerStatistics
                 .FirstOrDefault(x => x.StatisticName == "WeeklyWinsTotal");
             var playerSkill = userStats.PlayerStatistics
@@ -65,8 +63,6 @@ namespace Pop1_Stats_Collector
             var MMR1 = userStats.PlayerStatistics
                 .FirstOrDefault(x => x.StatisticName == "MMR1");
   
-
-
             long? winStatVal;
             if (winStat != null) winStatVal = winStat.Value; else winStatVal = 0;
             long? playerSkillVal;
@@ -83,8 +79,7 @@ namespace Pop1_Stats_Collector
             if (careerKills != null) careerKillsVal = careerKills.Value; else careerKillsVal = 0;
             long? MMR1Val;
             if (MMR1 != null) MMR1Val = MMR1.Value; else MMR1Val = 0;
-
-            
+                       
 
             Console.WriteLine($"Weekly Wins : {winStatVal}");
             Console.WriteLine($"Player Skill: {playerSkillVal}");
@@ -98,18 +93,13 @@ namespace Pop1_Stats_Collector
             
             string winStatString = winStatVal.ToString();
             string playerSKillString = playerSkillVal.ToString();
-            string weeklyKillString =  weeklyKillsVal.ToString();
-
-                                  
+            string weeklyKillString =  weeklyKillsVal.ToString();                       
             
             string textString = ($"{name2} - Weekly Wins: {winStatString} Player Skill: {playerSKillString} Weekly Kills: {weeklyKillString}");
-
-
 
             Console.WriteLine(textString);
             File.WriteAllText(path, textString);
             
-
         }
 
         internal static Task PullStats(object playerCode)
