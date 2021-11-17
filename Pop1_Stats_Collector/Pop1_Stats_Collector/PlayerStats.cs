@@ -13,16 +13,8 @@ namespace Pop1_Stats_Collector
     public class PlayerStats
     {
         public static object gameId;
-        //public string playerCode;
         public string name;
-        public string playerName { get; set; }
         public string playerCode { get; set; }
-
-        public long careerWinsInit { get; set; }
-
-        public long careerGamesPlayedInit { get; set; }
-
-        public long careerKills { get; set; }
 
         public static async Task<string> PullFabId() 
         {
@@ -115,7 +107,6 @@ namespace Pop1_Stats_Collector
 
 
             Console.WriteLine(textString);
-            //string path = @"stats\stats.txt";
             File.WriteAllText(path, textString);
             
 

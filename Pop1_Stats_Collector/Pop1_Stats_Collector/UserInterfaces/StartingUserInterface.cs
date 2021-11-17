@@ -38,11 +38,13 @@ namespace Pop1_Stats_Collector.UserInterfaces
                 
                 bool Quit2 = false;
                 while (!Quit2) {
-                    Console.WriteLine("Enter Player Slot (1, 2 or 3)");
+                    Console.WriteLine("Enter Player Slot (1, 2 or 3) or 0 - No Slot or E - Enemy");
                     string playerSlot = Console.ReadLine();
                     if (playerSlot == "1") { path = @"stats\stats1.txt"; Quit2 = true; }
                     else if (playerSlot == "2") { path = @"stats\stats2.txt"; Quit2 = true; }
                     else if (playerSlot == "3") { path = @"stats\stats3.txt"; Quit2 = true; }
+                    else if (playerSlot == "0") { path = @"stats\stats.txt"; Quit2 = true; }
+                    else if (playerSlot == "E") { path = @"stats\statsE.txt"; Quit2 = true; }
                     else
                     {
                         Console.WriteLine(string.Empty);
