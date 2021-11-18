@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.IO;
+using Pop1_Stats_Collector.UserInterfaces;
 
 namespace Pop1_Stats_Collector
 {
@@ -27,9 +28,10 @@ namespace Pop1_Stats_Collector
             var responseId = client.GetAsync($"{baseUrl}{name}").Result;
             var responseBody = await responseId.Content.ReadAsStringAsync();
             var user = JsonConvert.DeserializeObject<List<GetUserId>>(responseBody);
+            if (user.Any() == false) { Console.WriteLine("Input Not Valid"); await StartingUserInterface.MenuLoop(); };
             var gameName = user[0].displayName;
             var playerCode = user[0].playFabId;
-                        
+            
             Console.WriteLine($"Statistics for {gameName}");
             Console.WriteLine("-----------------------------");
 
