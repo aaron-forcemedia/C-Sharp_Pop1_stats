@@ -19,7 +19,7 @@ namespace Pop1_Stats_Collector
 
         public static async Task<string> PullFabId() 
         {
-            Console.WriteLine("Enter a name:");
+            Console.WriteLine("Enter a name: (Sample names: DatByte, x2the4th, GottaKeepOnGamin, Jason, J0N_CL0UD, Zoloto");
             string name;
             name = Console.ReadLine();
                         

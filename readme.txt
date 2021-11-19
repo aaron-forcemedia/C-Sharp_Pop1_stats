@@ -7,7 +7,7 @@ The API calls will be displayed as requested between matches with specific stats
 
 Please enjoy this work in progress. The intended design uses a colored text background and the text files will be overlayed onto a livestream of a video game in progress using Open Broadcaster Software (OBS) using the files created within the app. (Known bug: The code says that the files will be saved locally but they are currently being saved in the Debug Folder located within the bin folder)
 
-To test app please select option from menu and try some of the following Player Name examples: DatByte, x2the4th, J0N_CL0UD, Zoloto_, Gottakeepongamin, SlothLuvsChunk or Jason. (Known bug: The app will throw exception if a name can’t be found.)
+To test app please select option from menu and try some of the following Player Name examples: DatByte, x2the4th, J0N_CL0UD, Zoloto_, Gottakeepongamin, SlothLuvsChunk or Jason. (Known bug: Program will continue funtioning until you quit but the app will throw exception if a name wasn't found after closing the program.)
 
 Project Feature List:
 
